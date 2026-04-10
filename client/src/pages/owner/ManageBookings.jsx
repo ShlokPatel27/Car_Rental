@@ -30,7 +30,7 @@ const ManageBookings = () => {
 
       if (data.success) {
         toast.success("Status Updated")
-        fetchOwnerBookings() // ✅ FIXED
+        fetchOwnerBookings() 
       } else {
         toast.error(data.message)
       }
@@ -68,23 +68,23 @@ const ManageBookings = () => {
             {bookings.map((booking) => (
               <tr key={booking._id} className='border-t'>
 
-                {/* Car */}
+               
                 <td className='p-3 flex items-center gap-3'>
                   <img src={booking.car?.image} className='h-12 w-12 rounded object-cover' />
                   <p>{booking.car?.brand} {booking.car?.model}</p>
                 </td>
 
-                {/* Date */}
+               
                 <td className='p-3 max-md:hidden'>
                   {booking.pickupDate.split('T')[0]} → {booking.returnDate.split('T')[0]}
                 </td>
 
-                {/* Price */}
+               
                 <td className='p-3'>
                   {currency}{booking.price}
                 </td>
 
-                {/* Status Dropdown */}
+               
                 <td className='p-3'>
                   <select
                     value={booking.status}

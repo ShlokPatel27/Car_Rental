@@ -22,7 +22,7 @@ const CarDetails = () => {
 
     const [car, setCar] = useState(null)
 
-    // ✅ Safe car loading
+   
     useEffect(() => {
         if (!cars || cars.length === 0) return
 
@@ -36,7 +36,7 @@ const CarDetails = () => {
         setCar(foundCar)
     }, [id, cars])
 
-    // ✅ Booking handler (FIXED)
+   
     const handleSubmit = async (e) => {
         e.preventDefault()
 
@@ -52,7 +52,7 @@ const CarDetails = () => {
 
         try {
             const { data } = await axios.post('/api/bookings/create', {
-                car: id,   // ✅ FIXED (IMPORTANT)
+                car: id,   
                 pickupDate,
                 returnDate
             })
@@ -70,7 +70,7 @@ const CarDetails = () => {
         }
     }
 
-    // ✅ Prevent crash
+    
     if (!car || !car.pricePerDay) {
         return <Loader />
     }

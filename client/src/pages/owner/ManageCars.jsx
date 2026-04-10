@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Title from '../../components/owner/Title'
 import { assets } from '../../assets/assets'
 import { useAppContext } from '../../context/AppContext'
-import { toast } from 'react-hot-toast' // Make sure this matches your toast library
+import { toast } from 'react-hot-toast' 
 
 const ManageCars = () => {
 
@@ -26,7 +26,7 @@ const ManageCars = () => {
         try {
             const { data } = await axios.post('/api/owner/toggle-car', { carId })
             if (data.success) {
-                toast.success(data.message) // Fixed from toggle.success
+                toast.success(data.message) 
                 fetchOwnerCars()
             } else {
                 toast.error(data.message)
@@ -43,7 +43,7 @@ const ManageCars = () => {
 
             const { data } = await axios.post('/api/owner/delete-car', { carId })
             if (data.success) {
-                toast.success(data.message) // Fixed from toggle.success
+                toast.success(data.message) 
                 fetchOwnerCars()
             } else {
                 toast.error(data.message)
@@ -81,7 +81,7 @@ const ManageCars = () => {
                         {cars.length > 0 ? cars.map((car, index) => (
                             <tr key={index} className='border-t border-gray-200 hover:bg-gray-50 transition-colors'>
                                 
-                                {/* Car Information */}
+                               
                                 <td className='p-3 flex items-center gap-3'>
                                     <img src={car.image} alt="" className='h-12 w-12 aspect-square rounded-md object-cover bg-gray-100' />
                                     <div>
@@ -91,20 +91,20 @@ const ManageCars = () => {
                                     </div>
                                 </td>
 
-                                {/* Category */}
+                                
                                 <td className='p-3 max-md:hidden'>{car.category}</td>
 
-                                {/* Price */}
+                             
                                 <td className='p-3 font-medium'>{currency}{car.pricePerDay}<span className='text-xs text-gray-400 font-normal'>/day</span></td>
 
-                                {/* Availability Status */}
+                               
                                 <td className='p-3 max-md:hidden'>
                                     <span className={`px-3 py-1 rounded-full text-[10px] font-semibold uppercase tracking-wider ${car.isAvaliable ? 'bg-green-100 text-green-600' : 'bg-red-100 text-red-600'}`}>
                                         {car.isAvaliable ? "Available" : "Unavailable"}
                                     </span>
                                 </td>
 
-                                {/* Action Buttons */}
+                               
                                 <td className='p-3'>
                                     <div className='flex items-center justify-center gap-4'>
                                         <img 

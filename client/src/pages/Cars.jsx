@@ -63,7 +63,7 @@ const Cars = () => {
 
     return (
         <div className='min-h-screen pb-20'>
-            {/* Header Section - Optimized padding */}
+            
             <div className='flex flex-col items-center py-16 bg-light px-4'>
                 <Title 
                     title={isSearchData ? 'Available Now' : 'All Luxury Cars'} 
@@ -82,7 +82,7 @@ const Cars = () => {
                 </div>
             </div>
 
-            {/* List Section - Reduced side padding for a wider look */}
+           
             <div className='px-4 md:px-8 lg:px-12 mt-10'>
                 <div className='max-w-7xl mx-auto flex justify-between items-center mb-10'>
                     <p className='text-gray-500'>
@@ -97,7 +97,7 @@ const Cars = () => {
                     )}
                 </div>
 
-                {/* The Grid - Now uses max-width 7xl with balanced gaps */}
+                
                 <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto'>
                     {filteredCars.length > 0 ? (
                         filteredCars.map((car) => (

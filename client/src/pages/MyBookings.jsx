@@ -41,7 +41,7 @@ const MyBookings = () => {
             className='grid grid-cols-1 md:grid-cols-4 gap-6 p-6 border rounded-lg mt-5 min-h-[220px]'
           >
 
-            {/* Car Info */}
+            
             <div className='flex flex-col justify-center h-full'>
               <img 
                 src={booking.car?.image} 
@@ -55,7 +55,7 @@ const MyBookings = () => {
               </p>
             </div>
 
-            {/* ✅ Booking Info (TOP ALIGNED NOW) */}
+           
             <div className='md:col-span-2 flex flex-col justify-start'>
               <p className='text-sm text-gray-500'>Booking #{index + 1}</p>
 
@@ -77,7 +77,7 @@ const MyBookings = () => {
               </p>
             </div>
 
-            {/* Total (already top aligned) */}
+           
             <div className='flex flex-col justify-start'>
               <p className='text-gray-500'>Total</p>
               <h2 className='text-xl font-bold'>
