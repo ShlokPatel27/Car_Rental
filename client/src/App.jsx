@@ -34,13 +34,13 @@ const App = () => {
       {!isOwnerPath && <Navbar />}
       
       <Routes>
-        {/* --- User Routes --- */}
+        {/* User Routes */}
         <Route path="/" element={<Home />} />
         <Route path="/car-details/:id" element={<CarDetails />} />
         <Route path="/cars" element={<Cars />} />
         <Route path="/my-bookings" element={<MyBookings />} />
 
-        {/* --- Owner Routes with Nested Layout --- */}
+        {/* Owner Routes with Nested Layout*/}
         {/* The Layout component contains the Owner Navbar and Sidebar */}
         <Route path="/owner" element={<Layout />}>
           <Route index element={<Dashboard />} /> {/* This loads at /owner */}
