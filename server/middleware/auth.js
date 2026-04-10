@@ -3,7 +3,7 @@ import User from "../models/User.js";
 
 export const protect = async (req, res, next) => {
     try {
-        // ✅ Extract token properly
+        // Extract token properly
         const authHeader = req.headers.authorization;
 
         if (!authHeader || !authHeader.startsWith("Bearer ")) {
@@ -12,17 +12,17 @@ export const protect = async (req, res, next) => {
 
         const token = authHeader.split(" ")[1];
 
-        // ✅ Verify token (NOT decode)
+        // Verify token (NOT decode)
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
-        // ✅ Get user from DB
+        // Get user from DB
         const user = await User.findById(decoded.id).select("-password");
 
         if (!user) {
             return res.json({ success: false, message: "User not found" });
         }
 
-        // ✅ Attach user
+        // Attach user
         req.user = user;
 
         next();
