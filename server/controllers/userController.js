@@ -7,7 +7,6 @@ const generateToken = (userId) => {
     return jwt.sign({ id: userId }, process.env.JWT_SECRET)
 }
 
-// ✅ Register User
 export const registerUser = async (req, res) => {
     try {
         const { name, email, password } = req.body
@@ -39,7 +38,7 @@ export const registerUser = async (req, res) => {
                 name: user.name,
                 email: user.email,
                 role: user.role,
-                image: user.image || "" // 🔥 FIX
+                image: user.image || ""
             }
         })
 
@@ -49,7 +48,7 @@ export const registerUser = async (req, res) => {
     }
 }
 
-// ✅ Login User
+
 export const loginUser = async (req, res) => {
     try {
         const { email, password } = req.body
@@ -76,7 +75,7 @@ export const loginUser = async (req, res) => {
                 name: user.name,
                 email: user.email,
                 role: user.role,
-                image: user.image || "" // 🔥 FIX
+                image: user.image || "" 
             }
         })
 
@@ -86,7 +85,7 @@ export const loginUser = async (req, res) => {
     }
 }
 
-// ✅ Get User Data
+
 export const getUserData = async (req, res) => {
   try {
     const { user } = req;
@@ -108,7 +107,7 @@ export const getUserData = async (req, res) => {
   }
 };
 
-// ✅ Get Cars
+
 export const getCars = async (req, res) => {
     try {
         const cars = await Car.find({ isAvaliable: true })

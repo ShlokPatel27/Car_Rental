@@ -3,13 +3,12 @@ import Booking from "../models/Booking.js";
 import Car from "../models/Car.js";
 import User from "../models/User.js";
 
-// ==========================
+
 // Change Role to Owner
-// ==========================
 export const changeRoleToOwner = async (req, res) => {
   try {
     const { _id } = req.user;
-    // Added { new: true } to return the updated document if needed
+    
     await User.findByIdAndUpdate(_id, { role: "owner" });
 
     res.json({
@@ -22,9 +21,7 @@ export const changeRoleToOwner = async (req, res) => {
   }
 };
 
-// ==========================
-// Add Car
-// ==========================
+
 export const addCar = async (req, res) => {
   try {
     const { _id } = req.user;
@@ -65,9 +62,7 @@ export const addCar = async (req, res) => {
   }
 };
 
-// ==========================
-// Get Owner Cars
-// ==========================
+
 export const getOwnerCars = async (req, res) => {
   try {
     const { _id } = req.user;
@@ -78,9 +73,8 @@ export const getOwnerCars = async (req, res) => {
   }
 };
 
-// ==========================
-// Toggle Availability
-// ==========================
+
+
 export const toggleCarAvailability = async (req, res) => {
   try {
     const { _id } = req.user;
@@ -101,9 +95,8 @@ export const toggleCarAvailability = async (req, res) => {
   }
 };
 
-// ==========================
-// Delete Car (Soft Delete)
-// ==========================
+
+
 export const deleteCar = async (req, res) => {
   try {
     const { _id } = req.user;
@@ -125,9 +118,8 @@ export const deleteCar = async (req, res) => {
   }
 };
 
-// ==========================
-// Dashboard Data
-// ==========================
+
+
 export const getDashboardData = async (req, res) => {
   try {
     const { _id, role } = req.user;
@@ -165,9 +157,7 @@ export const getDashboardData = async (req, res) => {
   }
 };
 
-// ==========================
-// Update Profile Image
-// ==========================
+
 export const updateUserImage = async (req, res) => {
   try {
     const userId = req.user._id;
