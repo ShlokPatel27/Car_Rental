@@ -13,7 +13,7 @@ const CarCard = ({ car }) => {
             className='group rounded-xl overflow-hidden shadow-lg hover:-translate-y-2 transition-all duration-500 cursor-pointer bg-white'
         >
             
-            {/* Image Section */}
+            
             <div className='relative h-56 overflow-hidden'>
                 <img 
                     src={car.image} 
@@ -21,7 +21,7 @@ const CarCard = ({ car }) => {
                     className='w-full h-full object-cover transition-transform duration-700 group-hover:scale-110' 
                 />
 
-                {/* Updated "Available Now" Badge with Blue Color */}
+                
                 {car.isAvaliable && (
                     <p className='absolute top-4 left-4 bg-blue-600 text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full shadow-lg'>
                         Available Now
@@ -34,14 +34,14 @@ const CarCard = ({ car }) => {
                 </div>
             </div>
 
-            {/* Details Section */}
+            
             <div className='p-5'>
                 <div className='mb-4'>
                     <h3 className='text-xl font-bold text-gray-800 group-hover:text-blue-600 transition-colors'>{car.brand} {car.model}</h3>
                     <p className='text-gray-500 text-sm mt-1'>{car.category} • {car.year}</p>
                 </div>
 
-                {/* Features Grid */}
+                
                 <div className='grid grid-cols-2 gap-y-3 pt-4 border-t border-gray-50'>
                     <div className='flex items-center text-sm text-gray-600'>
                         <img src={assets.users_icon} alt="" className='h-4 mr-2 opacity-70' />

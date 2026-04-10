@@ -48,7 +48,7 @@ const Navbar = () => {
     <div className="bg-[#f1f5f9] border-b border-gray-200">
       <div className="max-w-7xl mx-auto flex items-center px-8 py-4">
 
-        {/* Logo */}
+        
         <Link to="/" className="flex items-center gap-2">
           <img src="/favicon.svg" alt="logo" className="h-8" />
           <span className="text-xl font-semibold text-blue-600">
@@ -56,10 +56,10 @@ const Navbar = () => {
           </span>
         </Link>
 
-        {/* DESKTOP VIEW */}
+        
         {!isMobile && (
           <>
-            {/* Menu */}
+           
             <div className="flex items-center gap-10 text-gray-600 font-medium ml-auto mr-10">
               {menuLinks.map((link, index) => (
                 <Link key={index} to={link.path} className="hover:text-black transition">
@@ -68,7 +68,7 @@ const Navbar = () => {
               ))}
             </div>
 
-            {/* Right Section */}
+           
             <div className="flex items-center gap-5">
 
               <div className="flex items-center border border-gray-300 rounded-full px-4 py-1.5 bg-white w-64">
@@ -97,7 +97,6 @@ const Navbar = () => {
           </>
         )}
 
-        {/* MOBILE BUTTON */}
         {isMobile && (
           <button
             className="ml-auto text-2xl"
@@ -108,7 +107,6 @@ const Navbar = () => {
         )}
       </div>
 
-      {/* MOBILE MENU */}
       {isMobile && open && (
         <div className="flex flex-col gap-5 px-6 pb-4 bg-[#f1f5f9]">
 

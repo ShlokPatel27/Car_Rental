@@ -24,7 +24,7 @@ const Login = () => {
 
             let url = ''
 
-            // ✅ Correct API routing
+            //  API routing
             if (state === "login") {
                 url = '/api/user/login'
             } else {
@@ -39,16 +39,15 @@ const Login = () => {
 
             if (data.success) {
 
-                // ✅ Save token
+                // Save token
                 localStorage.setItem('token', data.token)
 
-                // ✅ Set axios header
+                // Set axios header
                 axios.defaults.headers.common['Authorization'] = `Bearer ${data.token}`
 
-                // ✅ Update token
+                // Update token
                 setToken(data.token)
 
-                // 🔥 MOST IMPORTANT FIX (instant UI update)
                 setUser(data.user)
                 setIsOwner(data.user.role === 'owner')
 
@@ -60,7 +59,6 @@ const Login = () => {
 
                 setShowLogin(false)
 
-                // ✅ Redirect properly
                 if (data.user.role === 'owner') {
                     navigate('/owner')
                 } else {

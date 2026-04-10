@@ -47,7 +47,6 @@ const Dashboard = () => {
     <div className='px-4 pt-10 md:px-10 flex-1'>
       <Title title="Admin Dashboard" subTitle="Monitor overall platform performance including total cars, bookings, revenue, and recent activities" />
 
-      {/* Stats Cards Section */}
       <div className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 my-8 max-w-3xl'>
         {dashboardCards.map((card, index) => (
           <div key={index} className='flex gap-2 items-center justify-between p-4 rounded-md border border-borderColor'>
@@ -62,10 +61,10 @@ const Dashboard = () => {
         ))}
       </div>
 
-      {/* Recent Bookings and Revenue Section */}
+      
       <div className='flex flex-wrap items-start gap-6 mb-8 w-full'>
         
-        {/* Recent Bookings List */}
+        
         <div className='p-4 md:p-6 border border-borderColor rounded-md max-w-lg w-full'>
           <h1 className='text-lg font-medium'>Recent Bookings</h1>
           <p className='text-gray-500'>Latest customer bookings</p>
@@ -91,7 +90,6 @@ const Dashboard = () => {
           </div>
         </div>
 
-        {/* Monthly Revenue Section */}
         <div className='p-4 md:p-6 mb-6 border border-borderColor rounded-md w-full md:max-w-xs'>
           <h1 className='text-lg font-medium'>Monthly Revenue</h1>
           <p className='text-gray-500'>Revenue for current month</p>

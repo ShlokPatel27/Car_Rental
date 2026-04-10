@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Title from '../../components/owner/Title'
 import { assets } from '../../assets/assets'
 import { useAppContext } from '../../context/AppContext'
-import { toast } from 'react-hot-toast' // Added this import - ensure you have react-hot-toast installed
+import { toast } from 'react-hot-toast' 
 
 const AddCar = () => {
 
@@ -69,7 +69,6 @@ const AddCar = () => {
 
             <form onSubmit={onSubmitHandler} className='flex flex-col gap-5 text-gray-600 text-sm mt-6 max-w-xl'>
 
-                {/* Car Image */}
                 <div className='flex items-center gap-4 w-full p-4 border border-dashed border-gray-300 rounded-lg'>
                     <label htmlFor="car-image" className='cursor-pointer'>
                         <img 
@@ -82,7 +81,6 @@ const AddCar = () => {
                     <p className='text-sm text-gray-500'>Click icon to upload car photo</p>
                 </div>
 
-                {/* Brand & Model */}
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
                     <div className='flex flex-col gap-1'>
                         <label>Brand</label>
@@ -98,7 +96,6 @@ const AddCar = () => {
                     </div>
                 </div>
 
-                {/* Year, Price, Category */}
                 <div className='grid grid-cols-1 sm:grid-cols-3 gap-6'>
                     <div className='flex flex-col gap-1'>
                         <label>Year</label>
@@ -127,7 +124,6 @@ const AddCar = () => {
                     </div>
                 </div>
 
-                {/* Transmission, Fuel, Capacity */}
                 <div className='grid grid-cols-1 sm:grid-cols-3 gap-6'>
                     <div className='flex flex-col gap-1'>
                         <label>Transmission</label>
@@ -178,7 +174,7 @@ const AddCar = () => {
                         value={car.description} onChange={onInputChange}></textarea>
                 </div>
 
-                {/* Fixed Button: Added specific blue color if 'bg-primary' is missing */}
+                
                 <button 
                     disabled={isLoading}
                     type="submit"

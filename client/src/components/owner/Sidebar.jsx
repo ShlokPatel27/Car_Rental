@@ -13,7 +13,7 @@ const Sidebar = () => {
   const defaultProfile =
     "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png";
 
-  // cleanup preview
+
   useEffect(() => {
     return () => {
       if (previewUrl) URL.revokeObjectURL(previewUrl);
@@ -60,10 +60,10 @@ const Sidebar = () => {
   return (
     <div className="min-h-screen flex flex-col items-center pt-16 w-full max-w-60 border-r border-gray-200 bg-white">
 
-      {/* PROFILE */}
+     
       <div className="relative flex flex-col items-center">
 
-        {/* SAVE BUTTON */}
+        
         {imageFile && (
           <button
             onClick={updateImage}
@@ -109,7 +109,7 @@ const Sidebar = () => {
         </label>
       </div>
 
-      {/* NAME */}
+      
       <div className="mt-4 text-center">
         <p className="text-xs text-gray-400 uppercase font-semibold">
           Owner
@@ -119,13 +119,13 @@ const Sidebar = () => {
         </p>
       </div>
 
-      {/* MENU */}
+     
       <div className="w-full mt-8">
         {ownerMenuLinks.map((link, index) => (
           <NavLink
             key={index}
             to={link.path}
-            end   // 🔥 FIX: prevents Dashboard from always being active
+            end   
             className={({ isActive }) =>
               `flex items-center gap-3 px-6 py-3 ${
                 isActive
@@ -134,7 +134,7 @@ const Sidebar = () => {
               }`
             }
           >
-            {/* 🔥 FIX: icon also uses isActive */}
+           
             {({ isActive }) => (
               <>
                 <img

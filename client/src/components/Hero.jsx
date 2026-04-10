@@ -3,17 +3,17 @@ import { assets } from '../assets/assets'
 import { useAppContext } from '../context/AppContext'
 
 const Hero = () => {
-    // 1. Manually change your locations in this array
+    
     const locations = ['Ahmedabad', 'Rajkot', 'Surat', 'Vadodara', 'Gandhinagar']
 
     const [pickupLocation, setPickupLocation] = useState('')
     
-    // Fixed: Added () to call the hook
+    
     const { pickupDate, setPickupDate, returnDate, setReturnDate, navigate } = useAppContext()
 
     const handleSearch = (e) => {
         e.preventDefault()
-        // Fixed: Added missing '+' and '&' in the template string
+        
         navigate('/cars?pickupLocation=' + pickupLocation + '&pickupDate=' + pickupDate + '&returnDate=' + returnDate)
     }
 
@@ -27,7 +27,7 @@ const Hero = () => {
 
                 <div className='flex flex-col md:flex-row items-center gap-8 md:gap-12 flex-grow px-6 py-4'>
                     
-                    {/* Pickup Location Selection */}
+                  
                     <div className='flex flex-col items-start gap-1'>
                         <label className='text-base font-bold'>Pickup Location</label>
                         <select 
@@ -46,7 +46,7 @@ const Hero = () => {
                         </p>
                     </div>
 
-                    {/* Pick-up Date */}
+                  
                     <div className='flex flex-col items-start gap-1 border-gray-200 md:border-l md:pl-8'>
                         <label className='text-base font-bold' htmlFor='pickup-date'>Pick-up Date</label>
                         <input 
@@ -60,7 +60,6 @@ const Hero = () => {
                         />
                     </div>
 
-                    {/* Return Date */}
                     <div className='flex flex-col items-start gap-1 border-gray-200 md:border-l md:pl-8'>
                         <label className='text-base font-bold' htmlFor='return-date'>Return Date</label>
                         <input 
@@ -68,7 +67,6 @@ const Hero = () => {
                             onChange={e => setReturnDate(e.target.value)}
                             type="date" 
                             id="return-date" 
-                            // Added: min date set to pickupDate so return can't be before pickup
                             min={pickupDate || new Date().toISOString().split('T')[0]}
                             className='text-sm text-gray-500 outline-none cursor-pointer' 
                             required 
@@ -76,7 +74,7 @@ const Hero = () => {
                     </div>
                 </div>
 
-                {/* Adjusted Search Button */}
+              
                 <div className='md:pr-2'>
                     <button 
                         type="submit"
@@ -89,7 +87,7 @@ const Hero = () => {
 
             </form>
 
-            {/* Hero Car Image */}
+           
             <div className='w-full flex justify-center'>
                 <img src={assets.main_car} alt="car" className='max-w-[90%] md:max-w-[700px] h-auto object-contain drop-shadow-2xl' />
             </div>

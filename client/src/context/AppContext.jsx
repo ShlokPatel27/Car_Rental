@@ -11,7 +11,7 @@ export const AppProvider = ({ children }) => {
   const navigate = useNavigate();
   const currency = import.meta.env.VITE_CURRENCY;
 
-  // LOAD USER FROM LOCALSTORAGE (IMPORTANT FIX)
+  // LOAD USER FROM LOCALSTORAGE 
   const storedUser = localStorage.getItem("user");
   const [user, setUser] = useState(storedUser ? JSON.parse(storedUser) : null);
 
@@ -23,7 +23,7 @@ export const AppProvider = ({ children }) => {
   const [returnDate, setReturnDate] = useState("");
   const [cars, setCars] = useState([]);
 
-  // FETCH USER (UPDATED)
+  // FETCH USER 
   const fetchUser = async () => {
     try {
       const { data } = await axios.get("/api/user/data");
@@ -62,10 +62,10 @@ export const AppProvider = ({ children }) => {
     }
   };
 
-  // LOGOUT (UPDATED)
+  // LOGOUT 
   const logout = () => {
     localStorage.removeItem("token");
-    localStorage.removeItem("user"); // IMPORTANT
+    localStorage.removeItem("user");
 
     setToken(null);
     setUser(null);
@@ -77,7 +77,6 @@ export const AppProvider = ({ children }) => {
     navigate("/");
   };
 
-  // INIT
   useEffect(() => {
     const storedToken = localStorage.getItem("token");
 
@@ -100,7 +99,7 @@ export const AppProvider = ({ children }) => {
     currency,
     axios,
     user,
-    setUser, // USED BY SIDEBAR
+    setUser, 
     token,
     setToken,
     isOwner,
