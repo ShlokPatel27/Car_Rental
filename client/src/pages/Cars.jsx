@@ -5,6 +5,7 @@ import CarCard from '../components/CarCards'
 import { useSearchParams } from 'react-router-dom'
 import { useAppContext } from '../context/AppContext'
 import toast from 'react-hot-toast'
+import { motion } from 'motion/react'
 
 const Cars = () => {
     const [searchParams] = useSearchParams()
@@ -64,13 +65,23 @@ const Cars = () => {
     return (
         <div className='min-h-screen pb-20'>
             
-            <div className='flex flex-col items-center py-16 bg-light px-4'>
+            <motion.div 
+                initial={{ y: 30, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.6, ease: 'easeOut' }}
+                className='flex flex-col items-center py-16 bg-light px-4'
+            >
                 <Title 
                     title={isSearchData ? 'Available Now' : 'All Luxury Cars'} 
                     subTitle='Browse our full fleet of premium vehicles.' 
                 />
 
-                <div className='flex items-center bg-white px-5 mt-8 max-w-2xl w-full h-14 rounded-full shadow-md border border-gray-100'>
+                <motion.div 
+                    initial={{ y: 20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.5, delay: 0.3 }}
+                    className='flex items-center bg-white px-5 mt-8 max-w-2xl w-full h-14 rounded-full shadow-md border border-gray-100'
+                >
                     <img src={assets.search_icon} alt="" className='w-5 h-5 mr-3 opacity-50' />
                     <input 
                         onChange={(e) => setInput(e.target.value)} 
@@ -79,11 +90,15 @@ const Cars = () => {
                         placeholder='Search by brand or model...' 
                         className='w-full h-full outline-none text-gray-700 bg-transparent text-lg' 
                     />
-                </div>
-            </div>
+                </motion.div>
+            </motion.div>
 
-           
-            <div className='px-4 md:px-8 lg:px-12 mt-10'>
+            <motion.div 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.6 }}
+                className='px-4 md:px-8 lg:px-12 mt-10'
+            >
                 <div className='max-w-7xl mx-auto flex justify-between items-center mb-10'>
                     <p className='text-gray-500'>
                         Showing <span className='text-blue-600 font-bold'>{filteredCars.length}</span> Cars
@@ -97,13 +112,17 @@ const Cars = () => {
                     )}
                 </div>
 
-                
                 <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto'>
                     {filteredCars.length > 0 ? (
-                        filteredCars.map((car) => (
-                            <div key={car._id}>
+                        filteredCars.map((car, index) => ( // Fixed: index parameter added here
+                            <motion.div 
+                                key={car._id}
+                                initial={{ y: 20, opacity: 0 }}
+                                animate={{ y: 0, opacity: 1 }}
+                                transition={{ delay: 0.1 * index, duration: 0.4 }} // Fixed: variables and single duration
+                            >
                                 <CarCard car={car} />
-                            </div>
+                            </motion.div>
                         ))
                     ) : (
                         <div className='col-span-full text-center py-20'>
@@ -111,7 +130,7 @@ const Cars = () => {
                         </div>
                     )}
                 </div>
-            </div>
+            </motion.div>
         </div>
     )
 }
