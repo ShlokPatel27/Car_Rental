@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { assets } from '../assets/assets'
 import { useAppContext } from '../context/AppContext'
-import { motion } from 'framer-motion' // Note: Double check if your package is 'framer-motion' or 'motion/react' depending on your installation
+import {motion} from 'motion/react' // Note: Double check if your package is 'framer-motion' or 'motion/react' depending on your installation
 
 const Hero = () => {
     
