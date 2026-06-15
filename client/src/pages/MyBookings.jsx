@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Title from '../components/Title'
 import { useAppContext } from '../context/AppContext'
 import toast from 'react-hot-toast'
+import { motion } from 'motion/react'
 
 const MyBookings = () => {
 
@@ -27,7 +28,12 @@ const MyBookings = () => {
   }, [token])
 
   return (
-    <div className='px-6 md:px-16 lg:px-24 xl:px-32 mt-16 text-sm max-w-7xl'>
+    <motion.div 
+    initial={{ y: 30, opacity: 0 }}
+    animate={{ y: 0, opacity: 1 }}
+    transition={{ duration: 0.6}}
+
+    className='px-6 md:px-16 lg:px-24 xl:px-32 mt-16 text-sm max-w-7xl'>
       <Title 
         title='My Bookings'
         subTitle='View your car bookings'
@@ -36,7 +42,10 @@ const MyBookings = () => {
 
       <div>
         {bookings.map((booking, index) => (
-          <div 
+          <motion.div
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.4, delay:index*0.1}} 
             key={booking._id} 
             className='grid grid-cols-1 md:grid-cols-4 gap-6 p-6 border rounded-lg mt-5 min-h-[220px]'
           >
@@ -85,10 +94,10 @@ const MyBookings = () => {
               </h2>
             </div>
 
-          </div>
+          </motion.div>
         ))}
       </div>
-    </div>
+    </motion.div>
   )
 }
 

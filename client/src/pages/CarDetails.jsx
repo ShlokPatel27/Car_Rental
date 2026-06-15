@@ -4,6 +4,7 @@ import { assets } from '../assets/assets'
 import Loader from '../components/Loader'
 import { useAppContext } from '../context/AppContext'
 import toast from 'react-hot-toast'
+import { motion } from 'motion/react'
 
 const CarDetails = () => {
     const { id } = useParams()
@@ -89,17 +90,30 @@ const CarDetails = () => {
             <div className='grid grid-cols-1 lg:grid-cols-3 gap-12'>
 
                 {/* LEFT */}
-                <div className='lg:col-span-2'>
+                <motion.div 
+                initial={{ y: 30, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.6}}
+
+                className='lg:col-span-2'>
 
                     <div className='overflow-hidden rounded-2xl shadow-lg mb-8'>
-                        <img
+                        <motion.img
+                        initial={{ scale:0.98, opacity: 0 }}
+                        animate={{ scale:1, opacity: 1 }}
+                        transition={{ duration: 0.5}}
+
                             src={car.image}
                             alt={`${car.brand} ${car.model}`}
                             className='w-full max-h-[500px] object-cover'
                         />
                     </div>
 
-                    <div className='space-y-6'>
+                    <motion.div className='space-y-6'
+                    initial={{ opacity: 0 }}
+                    animate={{opacity: 1 }}
+                    transition={{ duration: 0.5, delay:0.2}}
+                    >
                         <div>
                             <h1 className='text-4xl font-bold'>
                                 {car.brand} {car.model}
@@ -116,18 +130,25 @@ const CarDetails = () => {
                                 { icon: assets.car_icon, text: car.transmission },
                                 { icon: assets.location_icon, text: car.location },
                             ].map(({ icon, text }, idx) => (
-                                <div key={idx} className='flex flex-col items-center bg-gray-50 py-4 rounded-xl'>
+                                <motion.div 
+                                initial={{ y: 10, opacity: 0 }}
+                                animate={{ y: 0, opacity: 1 }}
+                                transition={{ duration: 0.4}}
+
+                                key={idx} className='flex flex-col items-center bg-gray-50 py-4 rounded-xl'>
                                     <img src={icon} alt="" className='h-5 mb-2' />
                                     <span className='text-sm'>{text}</span>
-                                </div>
+                                </motion.div>
                             ))}
                         </div>
-
+                        
+                        {/* Description */}
                         <div>
                             <h2 className='text-xl font-bold mb-2'>Description</h2>
                             <p className='text-gray-600'>{car.description}</p>
                         </div>
 
+                        {/* Features */}
                         <div>
                             <h2 className='text-xl font-bold mb-2'>Key Features</h2>
                             <ul className='grid grid-cols-2 gap-2'>
@@ -139,12 +160,15 @@ const CarDetails = () => {
                                 ))}
                             </ul>
                         </div>
-                    </div>
-                </div>
+                    </motion.div>
+                </motion.div>
 
                 {/* RIGHT */}
                 <div>
-                    <form
+                    <motion.form
+                    initial={{ y: 30, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.6,delay:0.3}}
                         onSubmit={handleSubmit}
                         className='shadow-xl sticky top-24 rounded-2xl p-6 space-y-5 bg-white'
                     >
@@ -187,7 +211,7 @@ const CarDetails = () => {
                         <p className='text-xs text-center text-gray-400'>
                             No hidden fees. Free cancellation.
                         </p>
-                    </form>
+                    </motion.form>
                 </div>
             </div>
         </div>
