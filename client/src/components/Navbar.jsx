@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAppContext } from "../context/AppContext";
 import { toast } from "react-hot-toast";
+import {motion} from 'motion/react'
 
 const Navbar = () => {
 
@@ -45,15 +46,17 @@ const Navbar = () => {
   ];
 
   return (
-    <div className="bg-[#f1f5f9] border-b border-gray-200">
+    <motion.div 
+    initial ={{y:-20, opacity: 0}}
+    animate = {{y: 0, opacity: 1}}
+    transition={{duration: 0.5}}
+    className="bg-[#f1f5f9] border-b border-gray-200">
       <div className="max-w-7xl mx-auto flex items-center px-8 py-4">
 
         
         <Link to="/" className="flex items-center gap-2">
-          <img src="/favicon.svg" alt="logo" className="h-8" />
-          <span className="text-xl font-semibold text-blue-600">
-            CarRental
-          </span>
+          <motion.img whileHover={{scale:1.05}} src="/logo.svg" alt="logo" className="h-8" />
+          
         </Link>
 
         
@@ -136,7 +139,7 @@ const Navbar = () => {
           </div>
         </div>
       )}
-    </div>
+    </motion.div>
   );
 };
 
