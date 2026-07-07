@@ -7,8 +7,8 @@ const Testimonial = () => {
 
     const testimonials = [
         {
-            name: "Eva James",
-            location: "Vadodara, Gujarat",
+            name: "Priya Patel",
+            location: "Surat, Gujarat",
             image: assets.testimonial_image_1,
             testimonial: "I've rented cars from various companies, but the experience with CarRental was exceptional."
         },
