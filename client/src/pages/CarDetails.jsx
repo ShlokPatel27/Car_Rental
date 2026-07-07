@@ -22,6 +22,7 @@ const CarDetails = () => {
     } = useAppContext()
 
     const [car, setCar] = useState(null)
+    const [reviews, setReviews] = useState([])
 
    
     useEffect(() => {
@@ -35,7 +36,19 @@ const CarDetails = () => {
         }
 
         setCar(foundCar)
+        fetchReviews(foundCar._id)
     }, [id, cars])
+
+    const fetchReviews = async (carId) => {
+        try {
+            const { data } = await axios.get(`/api/reviews/car/${carId}`)
+            if (data.success) {
+                setReviews(data.reviews)
+            }
+        } catch (error) {
+            console.error(error)
+        }
+    }
 
    
     const handleSubmit = async (e) => {
@@ -159,6 +172,28 @@ const CarDetails = () => {
                                     </li>
                                 ))}
                             </ul>
+                        </div>
+
+                        {/* Reviews */}
+                        <div>
+                            <h2 className='text-xl font-bold mb-2'>Customer Reviews</h2>
+                            {reviews.length === 0 ? (
+                                <p className='text-gray-600'>No reviews yet for this car.</p>
+                            ) : (
+                                <div className='space-y-4 max-h-60 overflow-y-auto pr-2'>
+                                    {reviews.map(review => (
+                                        <div key={review._id} className='border-b pb-4 last:border-0 last:pb-0'>
+                                            <div className='flex items-center justify-between mb-1'>
+                                                <span className='font-semibold text-gray-800'>{review.user?.name || 'Anonymous User'}</span>
+                                                <div className='text-blue-500 text-sm'>
+                                                    {'★'.repeat(review.rating)}{'☆'.repeat(5 - review.rating)}
+                                                </div>
+                                            </div>
+                                            <p className='text-gray-600 text-sm'>{review.reviewText}</p>
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
                         </div>
                     </motion.div>
                 </motion.div>

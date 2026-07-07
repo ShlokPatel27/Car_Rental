@@ -5,6 +5,11 @@ import { useNavigate } from "react-router-dom";
 
 axios.defaults.baseURL = import.meta.env.VITE_BASE_URL;
 
+const storedToken = localStorage.getItem("token");
+if (storedToken) {
+    axios.defaults.headers.common["Authorization"] = `Bearer ${storedToken}`;
+}
+
 export const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
